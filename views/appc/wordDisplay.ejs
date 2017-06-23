@@ -1,0 +1,28 @@
+<% include ../partials/boilerplate %>
+<% include ../partials/nav %>
+<h1>Word Display</h1>
+<a id='add-new-wd' class='button' href='/appc/admin/words/add'>Add New Word</a>
+<div id='word-table-div'>
+  <table id='word-table'>
+    <tr>
+      <th> #</th>
+      <th> Word</th>
+      <th> Vowel</th>
+      <th> Sound File Path</th>
+    </tr>
+    <% for (let i = 0; i < words.length; i++) { %>
+    <tr>
+      <td><%= words[i].id %></td>
+      <td><%= words[i].word %></td>
+      <td><%= words[i].vowel%></td>
+      <td><%= words[i].sound_path %></td>
+      <td><a class='edit-button button' href='/appc/admin/words/<%= words[i].id %>'>EDIT</a></td>
+      <td><form method='POST' action='/appc/admin/words/<%= words[i].id %>?_method=DELETE'>
+          <input type='submit' class='delete-button button' value='Delete'/>
+        </form></td>
+    </tr>
+    <% } %>
+  </table>
+</div>
+<% include ../partials/footer %>
+<% include ../partials/end %>

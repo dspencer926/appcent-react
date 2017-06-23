@@ -1,0 +1,26 @@
+<% include ../partials/boilerplate %>
+<% include ../partials/nav %>
+<h1>Stat Page!</h1>
+
+<table id='stat-table'>
+  <tr>
+    <th> Vowel</th>
+    <th> Correct</th>
+    <th> Answered</th>
+    <th> Percentage</th>
+  </tr>
+  <tr>
+    <td>iy</td>
+    <td><%= stats.iy_ct %></td>
+    <td><%= stats.iy_total %></td>
+    <td><%= ((stats.iy_ct/stats.iy_total).toFixed(2)) * 100 %>%</td>
+  </tr>
+  <tr>
+     <td>ey</td>
+    <td><%= stats.ey_ct %></td>
+    <td><%= stats.ey_total %></td>
+    <td><%= ((stats.ey_ct/stats.ey_total).toFixed(2)) * 100 %>%</td>
+  </tr>
+
+<% include ../partials/footer %>
+<% include ../partials/end %>

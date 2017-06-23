@@ -1,0 +1,43 @@
+<% include ../partials/boilerplate %>
+<% include ../partials/nav %>
+<h1>Add word</h1>
+<div id='word-add-box'>
+  <form method='POST' action='add'>
+  <table>
+    <tr>
+      <th>Word</th>
+      <th>Vowel</th>
+      <th>Audio Path</th>
+    </tr>
+    <tr>
+      <td>
+        <input name='word' type='text' value='New Word'></input>
+      </td>
+      <td>
+        <select name='vowel' type='text'>
+          <option value='iy'>iy</option>
+          <option value='ɪ'>ɪ</option>
+          <option value='ey'>ey</option>
+          <option value='ɛ'>ɛ</option>
+          <option value='æ'>æ</option>
+          <option value='ɑ'>ɑ</option>
+          <option value='ʊ'>ʊ</option>
+          <option value='ɔ'>ɔ</option>
+          <option value='ou'>ou</option>
+          <option value='uw'>uw</option>
+          <option value='ə'>ə</option>
+        </select>
+      </td>
+      <td>
+        <input name='sound_path' type='text' value='Audio File Path /static/...'></input>
+      </td>
+      <td>
+        <input class='submit-button button' type='submit' value='Add Word!'/>
+      </td>
+    </tr>
+  </form>
+</div>
+</table>
+
+<% include ../partials/footer %>
+<% include ../partials/end %>

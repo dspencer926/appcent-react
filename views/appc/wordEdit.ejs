@@ -1,0 +1,28 @@
+<% include ../partials/boilerplate %>
+<% include ../partials/nav %>
+<h1>Edit Word</h1>
+
+<div id='word-edit-box'>
+  <form id='wordform' method='POST' action='/appc/admin/words/<%= word.id %>?_method=PUT'>
+    <input name='word' type='text' value='<%=word.word%>'></input>   
+      <select name='vowel' type='text' form='wordform'>
+          <option value='iy'>iy</option>
+          <option value='ɪ'>ɪ</option>
+          <option value='ey'>ey</option>
+          <option value='ɛ'>ɛ</option>
+          <option value='æ'>æ</option>
+          <option value='ɑ'>ɑ</option>
+          <option value='ʊ'>ʊ</option>
+          <option value='ɔ'>ɔ</option>
+          <option value='ou'>ou</option>
+          <option value='uw'>uw</option>
+          <option value='ə'>ə</option>
+        </select>
+    <input name='sound_path' type='text' value='<%=word.sound_path%>'></input>
+    <input class='submit-button button' type='submit' value='Edit it!'/>
+  </form>
+</div>
+</table>
+
+<% include ../partials/footer %>
+<% include ../partials/end %>

@@ -1,0 +1,24 @@
+<% include ../partials/boilerplate %>
+<% include ../partials/nav %>
+<div id='text-wrapper'>
+  <h1>Welcome, <%= username %>!</h1>
+  <p>What would you like to do today?</p>
+</div>
+<div id='activity-div'>
+  <a href='/appc/game'><div id='play-button' class='button mainpage-button'>PLAY!</div></a>
+  <a href='/appc/stats'><div class='button mainpage-button'>STATS!</div></a>
+  <% if (username === 'admin') { %>
+  <a href='/appc/admin/users'><div class='button mainpage-button'>VIEW/EDIT USERS</div></a>
+  <a href='/appc/admin/words'><div class='button mainpage-button'>VIEW/EDIT WORDS</div></a>   
+  <% } %>
+</div>
+
+
+
+
+
+
+
+
+<% include ../partials/footer %>
+<% include ../partials/end %>
