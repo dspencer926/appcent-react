@@ -4,13 +4,14 @@ const User = require('../models/userModel');
 const controller = {};
 
 controller.create = (req, res, next) => {
+  console.log(req.body)
   const salt = bcrypt.genSaltSync();
   const hash = bcrypt.hashSync(req.body.password, salt);
 
   User.create({
     username: req.body.username,
-    first_name: req.body.first_name,
-    last_name: req.body.last_name,
+    first_name: req.body.firstName,
+    last_name: req.body.lastName,
     email: req.body.email,
     password: hash,
     admin: false,
@@ -18,7 +19,7 @@ controller.create = (req, res, next) => {
     .then(user => {
       req.login(user, err => {
         if (err) return next(err);
-        res.redirect('/appc')
+        res.json({message: 'ok', user: user});
       });
     })
     .catch(err => {

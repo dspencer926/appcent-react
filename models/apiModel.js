@@ -1,3 +1,5 @@
+//organize models better (words, users, etc)
+
 const db = require('../db/config');
 
 const Appc = {};
@@ -23,10 +25,6 @@ Appc.userFindById = num => {
   return db.oneOrNone('SELECT * FROM users WHERE id = $1', [num]);
 }
 
-Appc.gameStart = () => {
-  console.log('game model in');
-  return db.query('SELECT * FROM words');
-}
 
 Appc.users = () => {
   console.log('admin model in');
@@ -62,10 +60,6 @@ Appc.destroy = id => {
   );
 };
 
-Appc.words = () => {
-  return db.query('SELECT * FROM words');
-}
-
 Appc.addNewWord = word => {
   return db.none(
     ` 
@@ -75,6 +69,11 @@ Appc.addNewWord = word => {
     [word.word, word.vowel, word.sound_path]
   );
 };
+
+Appc.getWords = () => {
+  console.log('game model in');
+  return db.query('SELECT * FROM words');
+}
 
 Appc.wordFindById = num => {
   console.log('main word model in');

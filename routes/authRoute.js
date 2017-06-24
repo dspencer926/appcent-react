@@ -8,14 +8,16 @@ const passport = require('../services/auth/local');
 
 router.post('/register', controller.create);
 
-router.post('/login',
-  passport.authenticate('local', {
-    successRedirect: '/appc',
-    failureRedirect: '/',
-    failureFlash: false,
-  })
-);
-
+router.post('/login', function(req, res, next) {
+  passport.authenticate('local', function(err, user, info) {
+    if (err) { return next(err); }
+    if (!user) { return res.json({message: info})}
+    req.logIn(user, function(err) {
+      if (err) { return next(err); }
+      return res.json({'message': 'ok', 'user': user});
+    });
+  })(req, res, next);
+});
 router.get('/logout', (req, res) => {
   req.logout();
   res.redirect('/');

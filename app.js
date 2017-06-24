@@ -11,10 +11,10 @@ require('dotenv').config();
 
 const app = express();
 
-const appcRoute = require('./routes/appcRoute');
-const authRoute = require('./routes/authRoute');
 
-const PORT = process.env.PORT || 3000;
+
+
+const PORT = process.env.PORT || 3002;
 app.listen(PORT, () =>{
   console.log(`Listening on port ${PORT}`);
 });
@@ -37,18 +37,18 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.get('/', (req, res) => {
-  res.render('index', ({
-    message: 'index works',
-    documentTitle: 'Welcome to Appcent!'
-  }));
-});
+// ____________________________ Routes ___________________________________
 
-app.use('/appc', appcRoute);
+const apiRoute = require('./routes/apiRoute');
+app.use('/api', apiRoute);
 
+const authRoute = require('./routes/authRoute');
 app.use('/auth', authRoute);
+
+app.get('/', (req, res) => {
+  res.json({message: 'server online'})
+});
 
 app.get('*', (req, res) => {
   res.status(404).send({message: 'not found!'});
 });
-

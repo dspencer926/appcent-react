@@ -14,10 +14,10 @@ passport.use(
     User.findByUserName(username)
       .then(user => {
         if (!user) {
-          return done(null, false);
+          return done(null, false, 'noUser');
         }
         if (!authHelpers.comparePass(password, user.password)) {
-          return done(null, false);
+          return done(null, false, 'noPwd');
         } else {
           return done(null, user);
         }
