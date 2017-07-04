@@ -140,7 +140,7 @@ class Entry extends Component {
     }
 
     return (
-      <div>
+      <div id='entry-div'>
         <div id='welcome-div'><h1> Welcome to <span>Appcent</span>!</h1></div>
         <div className='background-block'><h2>The accent modification platform!</h2></div>
         {authBox}

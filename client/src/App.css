@@ -41,6 +41,13 @@ td, tr {
   border-color: white;
 }
 
+#main-div {
+  display:flex;
+  margin-top: 100px;
+  justify-content: center;
+  align-items: center;
+}
+
 /* WELCOME PAGE */
 
 #welcome-div {
@@ -50,6 +57,13 @@ td, tr {
   padding: 20px;
   box-shadow: 5px 5px 10px black;
   text-align: center;
+}
+
+#entry-div {
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+
 }
 
 #get-started {
@@ -81,6 +95,11 @@ td, tr {
   text-align: center;
 }
 
+#login-div, #signup-div {
+    position: relative;
+    margin: 0 auto;
+}
+
 #login, #signup {
   margin: 10px;
   background-color: #FF6B35;
@@ -99,10 +118,12 @@ td, tr {
 }
 
 form {
-  padding: 20px;
-  margin-top: 20px;
   display: flex;
   flex-direction: column;
+  box-sizing: border-box;
+  width: 325px;
+  padding: 20px;
+  margin-top: 20px;
   align-items: center;
   background-color: #004E89;
   color: white;
@@ -110,7 +131,7 @@ form {
 
 .back-button {
   position: absolute;
-  top: 7%;
+  top: 25%;
   left: 5%;
   background-color: #FF6B35;
   color: white;  
@@ -205,9 +226,9 @@ th, td {
 #game-wrapper {
   display: flex;
   justify-content: center;
-  margin-top: 20%;
+  align-items: center;
+  flex-direction: column;
 }
-
 
 #game-div {
   background-color: #004E89;
@@ -216,6 +237,12 @@ th, td {
   height: 400px;
   flex-direction: column;
   margin: 0px 8%;
+}
+
+#all-btn {
+  width: 30%;
+  margin: 10px auto;
+  padding: 10px;
 }
 
 #word-container{ 
@@ -275,6 +302,7 @@ th, td {
 
 #vowel-choice-wrapper {
   box-shadow: 5px 5px 10px black;  
+  background-color: #004E89;
   width: 90%;
   margin-left: 17px;
   margin-top: 10%;
@@ -294,6 +322,7 @@ th, td {
 
 .vowel-choice{
   background-color: #FF6B35;
+  opacity: 0.5;
   height: 30px;
   width: 30px;
   float: left;
@@ -582,14 +611,6 @@ th, td {
   padding: 10px;
 }
 
-#game-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  margin-top: 5%;
-}
-
 .vowel-choice, .vowel-chosen {
   font-size: 1em;
 }
@@ -626,6 +647,7 @@ th, td {
 
 #sign-log-div {
   position: relative;
+  width: 325px;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -657,8 +679,10 @@ th, td {
 form {
   padding: 20px;
   margin-top: 20px;
+  width: 325px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   background-color: #004E89;
   color: white;
@@ -666,7 +690,7 @@ form {
 
 .back-button {
   position: absolute;
-  top: 7%;
+  top: 25%;
   left: 5%;
   background-color: #FF6B35;
   color: white;  
