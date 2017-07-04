@@ -22,7 +22,7 @@ app.listen(PORT, () =>{
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-app.use('/static', express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'client/build')));
 app.use(logger('dev'));
 
 app.use(cookieParser());
@@ -45,10 +45,10 @@ app.use('/api', apiRoute);
 const authRoute = require('./routes/authRoute');
 app.use('/auth', authRoute);
 
-app.get('/', (req, res) => {
-  res.json({message: 'server online'})
-});
-
+app.get('/*', function (req, res) {
+   res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+ });
+ 
 app.get('*', (req, res) => {
   res.status(404).send({message: 'not found!'});
 });
