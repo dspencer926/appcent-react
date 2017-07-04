@@ -168,6 +168,7 @@ nav {
   box-sizing: border-box;
   background-color: #FF6B35;
   justify-content: space-between;
+  align-items: center;
   top: 0%;
   padding: 0 5%;
 }
