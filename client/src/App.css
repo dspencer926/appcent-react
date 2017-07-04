@@ -184,7 +184,7 @@ nav ul {
 nav li {
   display: flex;
   /*margin: 0 2.5px;*/
-  line-height: 50px;
+  line-height: 75px;
   width: 50px;
   justify-content: center;
 } 
