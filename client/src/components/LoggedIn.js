@@ -57,7 +57,7 @@ class LoggedIn extends Component {
     }
 
     return (
-      <div id='main-div'>
+      <div id='loggedin-main-div'>
         {toRender}
       </div>
     );
