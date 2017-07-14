@@ -34,7 +34,7 @@ class Entry extends Component {
   logInClick() {
     this.setState({
       status: 'logIn',
-      logStatus: '',
+      logStatus: null,
     })
 
   }
@@ -42,7 +42,7 @@ class Entry extends Component {
   signUpClick() {
     this.setState({
       status: 'signUp',
-    logStatus: '',
+    logStatus: null,
   })
   }
 
@@ -53,7 +53,7 @@ class Entry extends Component {
 
   logInSubmit(e) {
     e.preventDefault();
-    this.setState({logStatus: ''});
+    this.setState({logStatus: null});
     console.log('loggingin ')
     fetch('/auth/login', {
       method: 'POST',
@@ -90,6 +90,7 @@ class Entry extends Component {
 
   signUpSubmit(e) {
     e.preventDefault();
+    this.setState({logStatus: null});
     if (Object.values(this.state).indexOf('') === -1) {
       fetch('/auth/register', {
         method: 'POST',
