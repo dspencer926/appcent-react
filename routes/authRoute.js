@@ -20,7 +20,7 @@ router.post('/login', function(req, res, next) {
 });
 router.get('/logout', (req, res) => {
   req.logout();
-  res.redirect('/');
+  res.json({'message': 'ok'});
 });
 
 module.exports = router;

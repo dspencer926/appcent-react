@@ -6,7 +6,7 @@ function comparePass(userPassword, databasePassword) {
 
 function loginRequired(req, res, next) {
   if (!req.user) {
-    return res.redirect('http://localhost:3000/appc/game');
+    return res.redirect('/');
   }
 
   return next();

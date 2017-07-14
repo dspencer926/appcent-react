@@ -4,12 +4,13 @@ class Entry extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      status: 'home',
+      status: 'home',                 // app status / screen showing
       username: '',
       password: '',
       firstName: '',
       lastName: '',
       email: '',
+      logStatus: '',
     }
     this.logInClick = this.logInClick.bind(this);
     this.signUpClick = this.signUpClick.bind(this);
@@ -31,11 +32,18 @@ class Entry extends Component {
   }
 
   logInClick() {
-    this.setState({status: 'logIn'})
+    this.setState({
+      status: 'logIn',
+      logStatus: '',
+    })
+
   }
 
   signUpClick() {
-    this.setState({status: 'signUp'})
+    this.setState({
+      status: 'signUp',
+    logStatus: '',
+  })
   }
 
   handleInput(e) {
@@ -45,6 +53,7 @@ class Entry extends Component {
 
   logInSubmit(e) {
     e.preventDefault();
+    this.setState({logStatus: ''});
     console.log('loggingin ')
     fetch('/auth/login', {
       method: 'POST',
@@ -63,16 +72,19 @@ class Entry extends Component {
     .then((json) => {
       let user = json.user;
       if (json.message === 'noUser') {
+        this.setState({logStatus: 'Username does not exist'});
         console.log('User does not exist');
       } else if (json.message === 'noPwd') {
-        console.log('Invalid password')
+        this.setState({logStatus: 'Incorrect password'});
+        console.log('Invalid password');
       } else if (json.message.message === 'Missing credentials') {
-        console.log('Please complete all fields')
+        console.log('Please complete all fields');
+        this.setState({logStatus: 'Please complete all fields'});
       } else if (json.message === 'ok') {
         console.log('logged in');
         this.props.logInSuccess(user.username, user.first_name, user.admin, false);
       }
-      console.log(json);  //expand to DOM
+      console.log(json); 
     })
   }
 
@@ -103,7 +115,10 @@ class Entry extends Component {
           this.props.logInSuccess(user.username, user.first_name, false, true);
         }  //expand to DOM
       })
-    } else {console.log('fill all fields')} // expand to DOM
+    } else {
+      this.setState({logStatus: 'Please complete all fields'});
+      console.log('fill all fields')
+    } 
   }
 
   render() {
@@ -122,6 +137,8 @@ class Entry extends Component {
             <input name='username' type='text' placeholder='Username' onChange={(e) => {this.handleInput(e)}}/>
             <input name='password' type='password' placeholder='Password' onChange={(e) => {this.handleInput(e)}}/>
             <input className='submit-button button' type='submit' value="Let's Go!"/>
+            <br/>
+            <p id='error'>{this.state.logStatus}</p>
           </form>
         </div>
         break;
@@ -135,6 +152,8 @@ class Entry extends Component {
             <input name='email' type='email' placeholder='email' onChange={(e) => {this.handleInput(e)}}/>
             <input name='password' type='password' placeholder='password' onChange={(e) => {this.handleInput(e)}}/>
             <input className='submit-button button' type='submit' value='Register!' />
+            <br/>
+            <p id='error'>{this.state.logStatus}</p>
           </form>
         </div>
     }
