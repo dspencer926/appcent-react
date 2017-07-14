@@ -113,8 +113,10 @@ class Entry extends Component {
         console.log(json);
         let user = json.user
         if (json.message === 'ok') {
-          this.props.logInSuccess(user.username, user.first_name, false, true);
-        }  //expand to DOM
+          this.props.logInSuccess(user.username, user.first_name, false, true);     //expand to DOM
+        } else if (json.message === 'User already exists') {
+          this.setState({logStatus: 'Username already exists'});    
+        }
       })
     } else {
       this.setState({logStatus: 'Please complete all fields'});
