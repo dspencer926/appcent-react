@@ -10,7 +10,7 @@ class Entry extends Component {
       firstName: '',
       lastName: '',
       email: '',
-      logStatus: '',
+      logStatus: null,
     }
     this.logInClick = this.logInClick.bind(this);
     this.signUpClick = this.signUpClick.bind(this);
