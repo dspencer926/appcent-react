@@ -701,6 +701,7 @@ h1 {
   display: flex;
   position: fixed;
   background-color: #FF6B35;
+  font-size: .5em;
   color: white;
   justify-content: flex-end;
   left: -90px;
