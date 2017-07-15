@@ -174,12 +174,15 @@ gameOver() {
       case 'vowelChoice': toRender = <VowelChoice gameStart={this.gameStart}/>;
         break;
       case 'gameOn': toRender = 
-        <GameOn
-          word={this.state.thisRound.word}
-          vowelOptions={this.state.thisRound.vowelOptions}
-          newRound={this.newRound}
-          wordArray={this.state.currentWords}
-        />
+        <div>
+          <CheatSheet />
+          <GameOn
+            word={this.state.thisRound.word}
+            vowelOptions={this.state.thisRound.vowelOptions}
+            newRound={this.newRound}
+            wordArray={this.state.currentWords}
+          />
+        </div>
         break;
       case 'gameOver': toRender = <GameOver 
         stats={this.state.stats} 
