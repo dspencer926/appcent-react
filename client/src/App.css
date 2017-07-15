@@ -135,6 +135,7 @@ form {
 
 .submit-button {
   background-color: #FF6B35;
+  padding: 10px;
   color: white;  
   box-shadow: none;
   border: none;
@@ -686,6 +687,7 @@ form {
 
 .submit-button {
   background-color: #FF6B35;
+  padding: 10px;
   color: white;  
   box-shadow: none;
   border: none;
