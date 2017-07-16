@@ -17,6 +17,7 @@ class App extends Component {
       status: 'logIn',
     }
     this.logInSuccess = this.logInSuccess.bind(this);
+    this.logOut = this.logOut.bind(this);
   }
 
   logInSuccess(username, firstName, isAdmin, isFirstTimeUser) {
@@ -27,6 +28,20 @@ class App extends Component {
       isAdmin: isAdmin,
       firstName: firstName,
     }, () => {console.log(this.state)})
+  }
+
+  logOut() {
+    fetch('/auth/logout', {
+      method: 'GET'
+    })
+    .then((res) => {
+      return res.json()
+    })
+    .then((json) => {
+      if (json.message === 'ok') {
+        this.setState({loggedIn: false});
+      }
+    })
   }
 
   render() {
@@ -49,6 +64,7 @@ class App extends Component {
             username={this.state.username}
             firstName={this.state.firstName}
             isAdmin={this.state.isAdmin}
+            logOut={this.logOut}
           />
         </div>
       }

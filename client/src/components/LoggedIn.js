@@ -46,6 +46,7 @@ class LoggedIn extends Component {
             username={this.props.username}
             isAdmin={this.props.isAdmin}
             changeStatus={this.changeStatus}
+            logOut={this.props.logOut}
           />
           <div id='text-wrapper'>
             <h1>Welcome, {this.props.firstName}!</h1>
@@ -63,6 +64,7 @@ class LoggedIn extends Component {
             username={this.props.username}
             isAdmin={this.props.isAdmin}
             changeStatus={this.changeStatus}
+            logOut={this.props.logOut}
           />
           <VowelGame />
         </div>;
@@ -72,6 +74,8 @@ class LoggedIn extends Component {
           <Nav
             username={this.props.username}
             isAdmin={this.props.isAdmin}
+            changeStatus={this.changeStatus}
+            logOut={this.props.logOut}
           />
           <Stats />
         </div>; 
