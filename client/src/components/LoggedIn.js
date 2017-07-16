@@ -2,13 +2,14 @@ import React, { Component } from 'react';
 import Buttons from './Buttons';
 import VowelGame from './vowelGame/VowelGame';
 import Stats from './Stats';
+import Nav from './Nav';
 
 
 class LoggedIn extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      status: 'welcome',
+      status: 'home',
 
     }
     this.changeStatus = this.changeStatus.bind(this);
@@ -39,8 +40,13 @@ class LoggedIn extends Component {
   render() {
     let toRender;
     switch (this.state.status) {
-      case 'welcome': toRender = 
+      case 'home': toRender = 
         <div id='main-page-div'>
+          <Nav 
+            username={this.props.username}
+            isAdmin={this.props.isAdmin}
+            changeStatus={this.changeStatus}
+          />
           <div id='text-wrapper'>
             <h1>Welcome, {this.props.firstName}!</h1>
             <p>What would you like to do today?</p>
@@ -51,9 +57,24 @@ class LoggedIn extends Component {
           />
         </div>
         break;
-      case 'vowelGame': toRender = <VowelGame />;
+      case 'vowelGame': toRender = 
+        <div id='vowel-game'>
+          <Nav
+            username={this.props.username}
+            isAdmin={this.props.isAdmin}
+            changeStatus={this.changeStatus}
+          />
+          <VowelGame />
+        </div>;
         break;      
-      case 'stats': toRender = <Stats />
+      case 'stats': toRender =
+        <div>
+          <Nav
+            username={this.props.username}
+            isAdmin={this.props.isAdmin}
+          />
+          <Stats />
+        </div>; 
     }
 
     return (

@@ -41,8 +41,10 @@ selectAll() {
   let vowels = [];                                              //array to push vowels
   console.log(buttons);
   buttons.forEach((val) => {          
-    val.style.opacity = 1                                        // turns buttons 
-    vowels.push(val.innerHTML)                                   // pushes vowels into array 
+    val.style.opacity = 1
+    console.log(val.innerHTML);                                        // turns buttons 
+    vowels.push(val.innerHTML);
+    console.log(vowels);                                   // pushes vowels into array 
   })
   this.setState({vowelChoices: vowels});
 }

@@ -14,6 +14,7 @@ class App extends Component {
       firstTimeUser: false,
       isAdmin: false,
       firstName: null,
+      status: 'logIn',
     }
     this.logInSuccess = this.logInSuccess.bind(this);
   }
@@ -36,21 +37,18 @@ class App extends Component {
           <div>
             <Nav 
               username={this.state.username}
-              isAdmin={this.state.isAdmin}
+              isAdmin={this.props.isAdmin}
             />
             <Admin />
           </div>
       } else {
       toRender = 
         <div>
-          <Nav 
-              username={this.state.username}
-              isAdmin={this.state.isAdmin}
-          />
           <LoggedIn 
             firstTimeUser={this.state.firstTimeUser} 
             username={this.state.username}
             firstName={this.state.firstName}
+            isAdmin={this.state.isAdmin}
           />
         </div>
       }
