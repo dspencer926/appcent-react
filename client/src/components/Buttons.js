@@ -5,7 +5,7 @@ class Buttons extends Component {
     return (
       <div id='activity-div'>
         <div id='play-button' className='button mainpage-button' onClick={() => {this.props.changeStatus('vowelGame')}}>PLAY!</div>
-        <div className='button mainpage-button' onClick={() => {this.props.changeStatus('stats')}}>STATS!</div>
+        {/* <div className='button mainpage-button' onClick={() => {this.props.changeStatus('stats')}}>STATS!</div> */}
       </div>
     );
   }

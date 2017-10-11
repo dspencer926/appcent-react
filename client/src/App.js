@@ -39,7 +39,7 @@ class App extends Component {
     })
     .then((json) => {
       if (json.message === 'ok') {
-        this.setState({loggedIn: false});
+        this.setState({loggedIn: false});  
       }
     })
   }
